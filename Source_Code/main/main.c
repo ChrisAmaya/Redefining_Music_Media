@@ -7,9 +7,9 @@
 
 void app_main() {
     // Initialize I2C with your desired SDA, SCL, and clock speed
-    int SDA_PIN = YOUR_SDA_PIN;
-    int SCL_PIN = YOUR_SCL_PIN;
-    int CLOCK_SPEED = YOUR_I2C_CLOCK_SPEED;
+    int SDA_PIN = 5;
+    int SCL_PIN = 4;
+    int CLOCK_SPEED = 400;
     esp_err_t i2c_config_result = i2c_config(SDA_PIN, SCL_PIN, CLOCK_SPEED);
     if (i2c_config_result != ESP_OK) {
         printf("I2C configuration failed\n");

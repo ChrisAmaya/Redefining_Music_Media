@@ -9,7 +9,7 @@
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
                 "${workspaceFolder}/**",
-                "/Users/chris/esp/esp-idf/components/esp_common/include"
+                "${workspaceFolder}/framework"
             ],
             "browse": {
                 "path": [

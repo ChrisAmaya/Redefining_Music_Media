@@ -1,3 +1,2 @@
-idf_component_register(SRCS "main.c" "i2c.c"
-                    INCLUDE_DIRS "."
-                    REQUIRES tsl2591)
+idf_component_register(SRCS "main.c" "../framework/i2c.c"
+                    INCLUDE_DIRS ".")
