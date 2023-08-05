@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include "framework/i2c.h"
+#include "i2c.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 
 #define TSL2591_ADDR        0x29 // Address of the TSL2591 sensor
@@ -44,8 +46,4 @@ void app_main() {
         vTaskDelay(pdMS_TO_TICKS(1000)); // Delay for 1000ms before reading again
     }
 }
-
-
-
-
 
