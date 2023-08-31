@@ -619,3 +619,10 @@ C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/bui
 C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/main/CMakeFiles/install.dir
 C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/main/CMakeFiles/install/local.dir
 C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/main/CMakeFiles/install/strip.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/__idf_esp-idf-rc522.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/edit_cache.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/rebuild_cache.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/list_install_components.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/install.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/install/local.dir
+C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/CMakeFiles/install/strip.dir

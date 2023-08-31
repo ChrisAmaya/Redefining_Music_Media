@@ -412,3 +412,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/main/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/chris/Dropbox/PC/Desktop/Project/Redefining_Music_Media/Source_Code/build/esp-idf/esp-idf-rc522/cmake_install.cmake")
+endif()
+

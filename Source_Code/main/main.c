@@ -1,49 +1,34 @@
-#include <stdio.h>
-#include "i2c.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include <esp_log.h>
+#include <inttypes.h>
+#include "rc522.h"
 
+static const char* TAG = "rc522-demo";
+static rc522_handle_t scanner;
 
-#define TSL2591_ADDR        0x29 // Address of the TSL2591 sensor
+static void rc522_handler(void* arg, esp_event_base_t base, int32_t event_id, void* event_data)
+{
+    rc522_event_data_t* data = (rc522_event_data_t*) event_data;
 
-
-void app_main() {
-    // Initialize I2C with your desired SDA, SCL, and clock speed
-    int SDA_PIN = 5;
-    int SCL_PIN = 4;
-    int CLOCK_SPEED = 400;
-    esp_err_t i2c_config_result = i2c_config(SDA_PIN, SCL_PIN, CLOCK_SPEED);
-    if (i2c_config_result != ESP_OK) {
-        printf("I2C configuration failed\n");
-        return;
-    }
-
-    while (1) {
-        // Example data to write to the sensor (you may need to refer to the TSL2591 datasheet for specific commands)
-        uint8_t write_data[2] = {0x80, 0x01}; // Example: Writing 0x01 to register 0x80
-
-        // Write data to the TSL2591 sensor
-        esp_err_t write_result = i2c_write_data(TSL2591_ADDR, 0x00, write_data, sizeof(write_data));
-        if (write_result != ESP_OK) {
-            printf("I2C write failed\n");
-            return;
-        }
-
-        // Read data from the TSL2591 sensor
-        uint8_t read_data[2] = {0};
-        esp_err_t read_result = i2c_read_data(TSL2591_ADDR, 0x80, read_data, sizeof(read_data));
-        if (read_result != ESP_OK) {
-            printf("I2C read failed\n");
-            return;
-        }
-
-        // Process the data if needed (convert it to the appropriate format)
-        uint16_t full = (read_data[0] << 8) | read_data[1];
-
-        // Print the data to the terminal
-        printf("Full spectrum: %d\n", full);
-
-        vTaskDelay(pdMS_TO_TICKS(1000)); // Delay for 1000ms before reading again
+    switch(event_id) {
+        case RC522_EVENT_TAG_SCANNED: {
+                rc522_tag_t* tag = (rc522_tag_t*) data->ptr;
+                ESP_LOGI(TAG, "Tag scanned (sn: %" PRIu64 ")", tag->serial_number);
+            }
+            break;
     }
 }
 
+void app_main()
+{
+    rc522_config_t config = {
+        .spi.host = SPI3_HOST,
+        .spi.miso_gpio = 13,
+        .spi.mosi_gpio = 11,
+        .spi.sck_gpio = 12,
+        .spi.sda_gpio = 10,
+    };
+
+    rc522_create(&config, &scanner);
+    rc522_register_events(scanner, RC522_EVENT_ANY, rc522_handler, NULL);
+    rc522_start(scanner);
+}
